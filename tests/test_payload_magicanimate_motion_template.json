@@ -1,0 +1,9 @@
+{
+  "input": {
+    "task": "magicanimate_motion_test",
+    "engine": "magicanimate",
+    "motion_name": "standing_idle",
+    "image_base64": "PUT_IMAGE_BASE64_HERE",
+    "no_sadtalker_fallback_for_body": true
+  }
+}

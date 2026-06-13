@@ -1,0 +1,30 @@
+V38 — Motion Library Pro
+
+هذه النسخة لا تضيف محركًا جديدًا عشوائيًا، بل تضيف مكتبة حركات منظمة.
+
+الهدف:
+- جمانة لا تقول فقط: حرك اليد أو امشِ.
+- كل حركة لها: level، requirements، risk، safe_alternatives، engine_preferences، pose_sequence_hint.
+- قبل تشغيل MusePose أو MagicAnimate أو AnimateAnyone يتم فحص هل الصورة تسمح بالحركة.
+
+الحركات الأساسية:
+- standing_idle / idle_breathing_01: وقوف وتنفس طبيعي.
+- head_turn_left / turn_head_left_01: التفات يسار.
+- listener_nod / listener_nod_01: إيماءة مستمع.
+- right_hand_explain / speaker_gesture_01: شرح باليد اليمنى.
+- both_hands_explain / speaker_gesture_02: شرح باليدين.
+- raise_hand_greeting / raise_hand_01: رفع اليد للتحية.
+- walking_lite / walking_lite_01: مشي خفيف، ممنوع إذا القدمان غير واضحتين.
+
+Docker image:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v38
+
+اختبارات RunPod:
+{"input":{"task":"motion_library_status"}}
+{"input":{"task":"motion_library_list"}}
+{"input":{"task":"motion_library_select","intent_ar":"أريد شخصا يشرح بيده اليمنى"}}
+{"input":{"task":"motion_library_validate","motion_name":"both_hands_explain","pose_truth":{"body_truth":{"standing_motion_allowed":true,"hands_motion_allowed":true,"walking_allowed":false}}}}
+{"input":{"task":"motion_library_execute","image_base64":"PUT_IMAGE_BASE64_HERE","intent_ar":"شرح باليد اليمنى","engine":"auto"}}
+
+قاعدة V38:
+لا حركة بلا شروط. لا مشي بلا قدمين. لا حركة يدين بلا يدين واضحتين. لا نجاح وهمي.

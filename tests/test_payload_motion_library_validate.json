@@ -1,0 +1,13 @@
+{
+  "input": {
+    "task": "motion_library_validate",
+    "motion_name": "both_hands_explain",
+    "pose_truth": {
+      "body_truth": {
+        "standing_motion_allowed": true,
+        "hands_motion_allowed": true,
+        "walking_allowed": false
+      }
+    }
+  }
+}

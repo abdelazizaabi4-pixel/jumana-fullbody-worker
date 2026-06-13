@@ -1,0 +1,34 @@
+V29 — AnimateAnyone Third Engine
+
+هذه النسخة تضيف MagicAnimate كاختيار ثانٍ للجسم الحقيقي بعد MusePose.
+
+القانون:
+- DWPose أولًا لاستخراج الحقيقة: الرأس، اليدان، القدمان، الجسم.
+- MusePose هو المحرك الأول.
+- إذا فشل MusePose أو طلبت engine=magicanimate، يستعمل MagicAnimate.
+- لا يوجد أي نجاح وهمي.
+- لا يستعمل SadTalker كبديل للجسم.
+
+Docker image:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v29
+
+متغيرات RunPod المهمة:
+MUSEPOSE_ROOT=/workspace/MusePose
+MUSEPOSE_WEIGHTS=/workspace/models/musepose
+MUSEPOSE_COMMAND_TEMPLATE=...
+MAGICANIMATE_ROOT=/workspace/MagicAnimate
+MAGICANIMATE_WEIGHTS=/workspace/models/magicanimate
+MAGICANIMATE_COMMAND_TEMPLATE=...
+
+اختبارات RunPod:
+{"input":{"task":"diagnostic"}}
+{"input":{"task":"magicanimate_motion_test","engine":"magicanimate","motion_name":"standing_idle","image_base64":"PUT_IMAGE_BASE64_HERE"}}
+
+إذا لم تكن أوزان MagicAnimate أو أمر التشغيل موجودين، سيظهر الجاني بوضوح:
+MAGICANIMATE_ROOT_NOT_FOUND
+MAGICANIMATE_WEIGHTS_NOT_FOUND
+MAGICANIMATE_COMMAND_NOT_CONFIGURED
+MAGICANIMATE_COMMAND_FAILED...
+
+الهدف من V28:
+فتح محرك جسم حقيقي ثانٍ للثبات الزمني، لا مجرد خطة فوق SadTalker.

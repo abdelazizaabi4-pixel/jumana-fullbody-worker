@@ -1,0 +1,25 @@
+# أمثلة فقط. لا تنسخها عشوائيًا. يجب أن تطابق نسخة MusePose الموجودة عندك.
+
+# المتغيرات المدعومة:
+# {python}
+# {root}
+# {source_image}
+# {input_image}
+# {motion_name}
+# {motion_json}
+# {pose_truth_json}
+# {output_dir}
+# {output}
+# {job_dir}
+# {weights}
+
+# مثال 1:
+python -u {root}/scripts/inference.py --source_image {source_image} --motion {motion_json} --output_dir {output_dir} --weights {weights}
+
+# مثال 2:
+python -u {root}/test_stage_2.py --ref_image_path {source_image} --pose_path {motion_json} --output_dir {output_dir} --pretrained_model_path {weights}
+
+# مثال 3:
+python -u {root}/inference.py --image {source_image} --pose {motion_json} --save_dir {output_dir} --ckpt_dir {weights}
+
+# V31 يطلب MUSEPOSE_COMMAND_TEMPLATE مضبوطًا حتى لا نعتمد على التخمين.

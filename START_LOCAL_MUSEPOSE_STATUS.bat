@@ -1,0 +1,2 @@
+python scripts\test_local_musepose_status.py
+pause

@@ -1,0 +1,7 @@
+{
+  "input": {
+    "task": "motion_library_select",
+    "intent_ar": "أريد شخصا يشرح بيده اليمنى بهدوء",
+    "max_level": 3
+  }
+}

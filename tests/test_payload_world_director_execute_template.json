@@ -1,0 +1,10 @@
+{
+  "input": {
+    "task": "world_director_execute",
+    "story_ar": "شخص يشرح فكرة مهمة بيده اليمنى ثم يختم بتحية",
+    "image_base64": "PUT_IMAGE_BASE64_HERE",
+    "max_shots": 2,
+    "engine": "auto",
+    "quality_threshold": 76
+  }
+}

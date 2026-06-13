@@ -1,0 +1,8 @@
+{
+  "input": {
+    "task": "character_create_profile",
+    "reference_image_base64": "PUT_REFERENCE_IMAGE_BASE64_HERE",
+    "character_name": "Adam",
+    "save_profile": true
+  }
+}

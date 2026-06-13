@@ -1,0 +1,8 @@
+{
+  "input": {
+    "task": "engine_ensemble_plan",
+    "motion_name": "both_hands_explain",
+    "engine": "auto",
+    "quality_history": {}
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "input": {
+    "task": "deep_quality_judge",
+    "video_base64": "PUT_FINAL_VIDEO_BASE64_HERE",
+    "expected_motion": "real_full_body_talk",
+    "talking_expected": true,
+    "hands_expected": false,
+    "strict": true
+  }
+}

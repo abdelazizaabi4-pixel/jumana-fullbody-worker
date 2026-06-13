@@ -1,0 +1,18 @@
+خطوات V34:
+
+1. ارفع محتوى _GITHUB_UPLOAD_ONCE_FULLBODY_WORKER إلى GitHub repo الخاص بـ jumana-fullbody-worker.
+2. شغل GitHub Actions.
+3. في RunPod FullBody Endpoint ضع Docker image:
+   docker.io/abdelazizaabi/jumana-fullbody-worker:v34
+
+اختبار الحالة:
+{"input":{"task":"head_tracking_status"}}
+
+اختبار القالب:
+{"input":{"task":"head_tracking_template"}}
+
+اختبار تتبع الرأس:
+{"input":{"task":"head_track_video","video_base64":"PUT_BODY_VIDEO_BASE64_HERE","stride":3}}
+
+لا تنتقل إلى V34 Face Graft حتى يظهر:
+face_graft_allowed = true

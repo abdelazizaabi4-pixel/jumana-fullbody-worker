@@ -1,0 +1,13 @@
+خطوات V39:
+
+1. ارفع محتوى _GITHUB_UPLOAD_ONCE_FULLBODY_WORKER إلى GitHub الخاص بـ jumana-fullbody-worker.
+2. شغّل GitHub Actions.
+3. غيّر FullBody Endpoint فقط إلى:
+   docker.io/abdelazizaabi/jumana-fullbody-worker:v39
+4. لا تغيّر SadTalker Endpoint.
+
+اختبارات:
+{"input":{"task":"character_consistency_status"}}
+{"input":{"task":"character_consistency_template"}}
+{"input":{"task":"character_create_profile","reference_image_base64":"PUT_REFERENCE_IMAGE_BASE64_HERE","character_name":"Adam"}}
+{"input":{"task":"character_consistency_gate","character_profile":"PROFILE_JSON_OR_ID","target_video_base64":"PUT_VIDEO_BASE64_HERE","strict":true}}

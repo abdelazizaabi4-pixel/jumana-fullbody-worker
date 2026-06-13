@@ -1,0 +1,25 @@
+V29 — AnimateAnyone Third Engine
+
+هذه النسخة تضيف AnimateAnyone أو بديله المستقر كمحرك ثالث لعامل الجسم الكامل.
+
+الترتيب الذكي:
+1. DWPose Truth Engine يفحص الهيكل الحقيقي.
+2. MusePose يحاول أولًا.
+3. MagicAnimate يحاول ثانيًا.
+4. AnimateAnyone يحاول ثالثًا عند توفره أو عند طلب engine=animateanyone.
+
+لا يوجد تزييف:
+إذا لم يكن AnimateAnyone مثبتًا أو الأوزان ناقصة أو الأمر غير مضبوط، يرجع العامل:
+ANIMATEANYONE_ROOT_NOT_FOUND
+ANIMATEANYONE_WEIGHTS_NOT_FOUND
+ANIMATEANYONE_COMMAND_NOT_CONFIGURED
+ANIMATEANYONE_COMMAND_FAILED
+
+Docker image:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v29
+
+اختبار:
+{"input":{"task":"animateanyone_motion_test","engine":"animateanyone","motion_name":"standing_idle","image_base64":"PUT_IMAGE_BASE64_HERE"}}
+
+الهدف من V29:
+إضافة محرك ثالث حقيقي يحافظ على هوية الشخص واتساق الحركة، دون استعمال SadTalker كجسم كامل.

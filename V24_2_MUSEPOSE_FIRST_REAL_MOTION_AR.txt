@@ -1,0 +1,35 @@
+V24.2 — MusePose First Real Motion
+
+هذه النسخة هي أول طبقة تشغيل للجسم الحقيقي فوق DWPose Truth Engine.
+
+القاعدة:
+- لا SadTalker كبديل للجسم.
+- لا فيديو وهمي.
+- لا مشي قبل التأكد من القدمين.
+- لا MusePose قبل نجاح DWPose.
+
+المهام المدعومة:
+1) diagnostic
+2) pose_truth
+3) dwpose_truth
+4) real_full_body_video
+5) musepose_motion_test
+
+الهدف:
+الصورة تدخل → DWPose يفحص الهيكل → إذا الصورة صالحة → MusePose يحاول إنتاج فيديو جسم حقيقي.
+
+إذا MusePose غير مثبت أو الأوزان غير موجودة، ترجع جمانة سببًا واضحًا:
+MUSEPOSE_ROOT_NOT_FOUND
+MUSEPOSE_WEIGHTS_NOT_FOUND
+MUSEPOSE_COMMAND_NOT_CONFIGURED
+MUSEPOSE_COMMAND_FAILED
+MUSEPOSE_FINISHED_BUT_NO_VIDEO_FOUND
+
+المتغيرات المهمة في RunPod:
+MUSEPOSE_ROOT=/workspace/MusePose
+MUSEPOSE_WEIGHTS=/workspace/models/musepose
+MUSEPOSE_COMMAND_TEMPLATE=الأمر الحقيقي لتشغيل نسخة MusePose عندك
+MUSEPOSE_TIMEOUT_SECONDS=1800
+
+Docker image:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v24-2

@@ -1,0 +1,46 @@
+# Jumana V35 — Deep Quality Judge
+
+هذه النسخة تضيف حكم جودة عميقًا قبل تسليم النتيجة للمستخدم.
+
+## ماذا يفحص V35؟
+- وجود الفيديو وحجمه الحقيقي.
+- مدة الفيديو والدقة.
+- الإطارات السوداء.
+- التجمّد وضعف الحركة.
+- الطاقة الحركية.
+- الوميض وعدم الاستقرار الزمني.
+- الضبابية وضعف التفاصيل.
+- وجود الصوت إذا كان الفيديو ناطقًا.
+- ظهور الوجه واستقراره كمؤشر أولي للهوية.
+- مؤشر مزامنة الفم بدون ادعاء نموذج عصبي إذا لم يكن مركبًا.
+- مؤشر جودة اليدين اعتمادًا على DWPose/pose_truth إذا أرسلته جمانة.
+
+## مبدأ الصدق
+V35 لا يقول إن الفيديو عالمي فقط لأنه وُلد. يعطي:
+- overall_quality_score
+- strict_quality_pass
+- world_class_gate_pass
+- main_criminal_ar
+- solution_ar
+- next_retry_recommendation_ar
+
+## مهام RunPod
+```json
+{"input":{"task":"deep_quality_status"}}
+```
+
+```json
+{"input":{"task":"deep_quality_template"}}
+```
+
+```json
+{"input":{"task":"deep_quality_judge","video_base64":"PUT_FINAL_VIDEO_BASE64_HERE","expected_motion":"real_full_body_talk","talking_expected":true,"strict":true}}
+```
+
+## Docker image
+```text
+docker.io/abdelazizaabi/jumana-fullbody-worker:v36
+```
+
+## القاعدة الذهبية
+لا ننتقل إلى V36 Smart Retry 2.0 إلا بعد أن يعطينا V35 تقريرًا واضحًا عن الجاني والجودة.

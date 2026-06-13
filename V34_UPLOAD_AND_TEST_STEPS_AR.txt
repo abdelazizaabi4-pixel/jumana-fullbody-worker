@@ -1,0 +1,17 @@
+خطوات اختبار V34 على RunPod
+
+1) ارفع محتوى _GITHUB_UPLOAD_ONCE_FULLBODY_WORKER إلى GitHub repo الخاص بعامل الجسم الكامل.
+2) شغّل GitHub Actions.
+3) ضع Docker image في FullBody Endpoint فقط:
+   docker.io/abdelazizaabi/jumana-fullbody-worker:v34
+
+اختبار الحالة:
+{"input":{"task":"face_graft_status"}}
+
+قالب الاختبار:
+{"input":{"task":"face_graft_template"}}
+
+اختبار التركيب:
+{"input":{"task":"face_graft_video","body_video_base64":"PUT_BODY_VIDEO_BASE64_HERE","talking_face_video_base64":"PUT_FACE_VIDEO_BASE64_HERE","strict":true}}
+
+إذا ظهرت FACE_GRAFT_BLOCKED_BY_UNSTABLE_HEAD_TRACKING فالحل هو إعادة إنتاج فيديو الجسم بحركة أبسط أو إرسال head_box_hint أو تقرير V33 head_tracks.

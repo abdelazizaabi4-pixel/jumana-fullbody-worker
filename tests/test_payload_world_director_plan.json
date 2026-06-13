@@ -1,0 +1,8 @@
+{
+  "input": {
+    "task": "world_director_plan",
+    "story_ar": "شخص يرحب بالجمهور ثم يشرح بيده اليمنى ثم يختم بتحية قصيرة",
+    "max_shots": 3,
+    "quality_threshold": 76
+  }
+}

@@ -1,0 +1,30 @@
+V37 — Engine Ensemble Router
+
+يا شريك عبد العزيز، هذه النسخة لا تضيف محركًا جديدًا ولا تزيف التقدم.
+وظيفتها أن تجعل جمانة تختار المحرك الأفضل قبل التشغيل، بدل أن تجرب عشوائيًا أو تنتظر الفشل.
+
+ما الذي تفحصه V37؟
+1. تقرير V30 Engine Readiness Doctor.
+2. نتيجة DWPose Truth Engine للصورة.
+3. نوع الحركة المطلوبة: وقوف، شرح باليد، مشي خفيف.
+4. تاريخ الجودة السابق من V35 إذا وُجد.
+5. سياق V36 Smart Retry إذا كان هناك جاني سابق.
+
+ترتيب المحركات عند التعادل:
+MusePose أولًا، MagicAnimate ثانيًا، AnimateAnyone ثالثًا.
+لكن إذا كان تاريخ الجودة يقول إن MusePose هو الجاني، تنقص أفضليته وتجرّب المحرك الأنسب الجاهز.
+
+مهام V37:
+engine_ensemble_status
+engine_ensemble_template
+engine_ensemble_plan
+engine_ensemble_execute
+
+قاعدة V37:
+لا تشغيل ثقيل قبل اختيار المحرك.
+لا اختيار محرك غير جاهز.
+لا مشي إذا DWPose منع المشي.
+لا فيديو وهمي إذا كل المحركات غير جاهزة.
+
+Docker image:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v38

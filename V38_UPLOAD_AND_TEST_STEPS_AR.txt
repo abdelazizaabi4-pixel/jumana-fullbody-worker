@@ -1,0 +1,22 @@
+خطوات V38:
+
+1. ارفع محتوى هذا المجلد إلى GitHub الخاص بـ jumana-fullbody-worker:
+   _GITHUB_UPLOAD_ONCE_FULLBODY_WORKER
+
+2. شغل GitHub Actions.
+
+3. في RunPod FullBody Endpoint فقط استعمل image:
+   docker.io/abdelazizaabi/jumana-fullbody-worker:v38
+
+4. لا تغير SadTalker Endpoint.
+
+5. اختبر:
+   {"input":{"task":"motion_library_status"}}
+   {"input":{"task":"motion_library_list"}}
+   {"input":{"task":"motion_library_template"}}
+
+6. اختبر اختيار الحركة:
+   {"input":{"task":"motion_library_select","intent_ar":"شرح باليدين"}}
+
+7. اختبر تشغيلًا حقيقيًا:
+   {"input":{"task":"motion_library_execute","image_base64":"PUT_IMAGE_BASE64_HERE","intent_ar":"شرح باليد اليمنى","engine":"auto"}}

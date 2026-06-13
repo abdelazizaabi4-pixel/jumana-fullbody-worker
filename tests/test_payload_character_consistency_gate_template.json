@@ -1,0 +1,9 @@
+{
+  "input": {
+    "task": "character_consistency_gate",
+    "character_profile": "PROFILE_JSON_OR_ID",
+    "target_video_base64": "PUT_VIDEO_BASE64_HERE",
+    "strict": true,
+    "sample_frames": 8
+  }
+}

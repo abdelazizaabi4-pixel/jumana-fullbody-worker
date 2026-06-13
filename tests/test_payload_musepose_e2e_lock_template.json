@@ -1,0 +1,8 @@
+{
+  "input": {
+    "task": "musepose_e2e_lock_test",
+    "engine": "musepose",
+    "motion_name": "standing_idle",
+    "image_base64": "PUT_IMAGE_BASE64_HERE"
+  }
+}

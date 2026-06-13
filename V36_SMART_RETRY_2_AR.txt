@@ -1,0 +1,32 @@
+V36 — Smart Retry 2.0
+
+هذه النسخة تضيف عقل إعادة المحاولة الذكي بعد V35 Deep Quality Judge.
+
+الفكرة:
+لا تعيد جمانة نفس التجربة الفاشلة. تقرأ تقرير الجودة، تحدد الجاني، ثم تخفض الحركة أو تغيّر المحرك أو تختار خطة أبسط.
+
+المهام الجديدة:
+- smart_retry_status
+- smart_retry_template
+- smart_retry_plan
+- smart_retry_execute
+
+أمثلة اختبار RunPod:
+
+1) الحالة:
+{"input":{"task":"smart_retry_status"}}
+
+2) خطة بدون تشغيل ثقيل:
+{"input":{"task":"smart_retry_plan","quality_report":{"overall_quality_score":52,"main_criminal_ar":"hands_deformation"},"requested_motion":"both_hands_explain"}}
+
+3) تنفيذ محاولات حقيقية:
+{"input":{"task":"smart_retry_execute","image_base64":"PUT_IMAGE_BASE64_HERE","motion_name":"both_hands_explain","engine":"auto","max_attempts":4,"quality_threshold":76}}
+
+قواعد الصدق:
+- لا يوجد نجاح وهمي.
+- لا يستعمل SadTalker كبديل للجسم.
+- إذا لم يخرج أي فيديو حقيقي، يرجع تقرير الجناة لا فيديو مزيف.
+- إذا خرج أكثر من فيديو، يختار الأفضل حسب Deep Quality Judge.
+
+Docker image:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v36

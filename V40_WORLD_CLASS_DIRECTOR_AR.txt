@@ -1,0 +1,31 @@
+V40 — World-Class Director
+
+هذه النسخة تضيف عقل المخرج العالمي لجمانة:
+
+1. تفهم القصة أو السكريبت.
+2. تقسم القصة إلى لقطات.
+3. تختار الحركة المناسبة لكل لقطة.
+4. تختار نوع الكاميرا والمسافة.
+5. تبني payload لكل لقطة.
+6. تمر عبر Motion Library Pro.
+7. تمر عبر Engine Ensemble Router.
+8. تمر عبر Engine Readiness Doctor.
+9. تفحص الجودة عبر Deep Quality Judge.
+10. تحافظ على الشخصية عبر Character Consistency عند وجود profile.
+
+مهم جدًا:
+V40 ليست نموذج فيديو ضخم مثل Sora أو Veo.
+هي عقل إخراج وتنظيم وتشغيل فوق المحركات التي ركبناها.
+لا تدعي إنتاج فيديو حقيقي إلا إذا أعاد المحرك video_base64 فعليًا.
+
+Docker image:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v40
+
+اختبارات RunPod:
+{"input":{"task":"world_director_status"}}
+{"input":{"task":"world_director_template"}}
+{"input":{"task":"world_director_plan","story_ar":"شخص يرحب بالجمهور ثم يشرح بيده اليمنى ثم يختم بتحية","max_shots":3}}
+{"input":{"task":"world_director_execute","story_ar":"شخص يشرح فكرة مهمة بيده اليمنى","image_base64":"PUT_IMAGE_BASE64_HERE","max_shots":2,"engine":"auto"}}
+
+القاعدة الذهبية:
+التخطيط لا يحتاج صورة، لكن التنفيذ الحقيقي يحتاج image_base64 ومحركات جاهزة.

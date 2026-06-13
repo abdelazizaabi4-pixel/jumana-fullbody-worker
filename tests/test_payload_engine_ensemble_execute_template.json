@@ -1,0 +1,9 @@
+{
+  "input": {
+    "task": "engine_ensemble_execute",
+    "image_base64": "PUT_IMAGE_BASE64_HERE",
+    "motion_name": "right_hand_explain",
+    "engine": "auto",
+    "quality_threshold": 76
+  }
+}

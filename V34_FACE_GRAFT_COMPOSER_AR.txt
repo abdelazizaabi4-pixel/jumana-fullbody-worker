@@ -1,0 +1,30 @@
+V34 — Face Graft Composer
+
+هذه النسخة تضيف أول تركيب فعلي للوجه الناطق فوق رأس فيديو الجسم، اعتمادًا على V33 Real Head Tracking.
+
+القاعدة الذهبية:
+لا يتم تركيب الوجه إذا لم توجد head_tracks صالحة.
+لا يوجد نجاح وهمي.
+
+المهام الجديدة في FullBody Worker:
+- face_graft_status
+- face_graft_template
+- face_graft_video
+- v34_face_graft
+
+المدخلات الأساسية:
+body_video_base64 أو body_video_path
+talking_face_video_base64 أو talking_face_video_path
+head_tracks أو head_tracking_report_path أو head_tracking_report_base64
+
+إذا لم ترسل head_tracks، تحاول V34 تشغيل V33 Head Tracking داخليًا.
+
+الإخراج:
+video_base64
+v34_face_graft_report
+graft_ratio_percent
+strict_quality_pass
+
+تنبيه صادق:
+V34 تستعمل head-track alpha-blend face graft، وليست deep inpainting.
+V35 ستفحص الجودة بعمق: الهوية، الشفاه، اليدين، الفليكر، واستمرارية الملابس.

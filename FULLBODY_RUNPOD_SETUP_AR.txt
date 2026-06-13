@@ -1,0 +1,51 @@
+إعداد RunPod لعامل الجسم الكامل V40 — World-Class Director / MusePose End-to-End Lock
+
+1. ارفع محتوى هذا المجلد فقط إلى GitHub repo جديد باسم:
+   jumana-fullbody-worker
+
+2. لا ترفع مجلد V40 الكامل، ولا تخلطه مع مستودع SadTalker.
+
+3. أضف GitHub Secrets داخل المستودع:
+   DOCKERHUB_USERNAME
+   DOCKERHUB_TOKEN
+
+4. شغّل GitHub Actions:
+   Build and Push Jumana FullBody Worker V40 World-Class Director
+
+5. بعد نجاح البناء استعمل Docker image:
+   docker.io/abdelazizaabi/jumana-fullbody-worker:v40
+
+6. أنشئ RunPod Serverless Endpoint جديد للجسم الكامل فقط:
+   jumana-fullbody-worker
+   ولا تستبدل به SadTalker Worker.
+
+7. أول اختبار:
+   {"input":{"task":"ping"}}
+
+8. اختبار التشخيص:
+   {"input":{"task":"diagnostic"}}
+
+9. اختبار قفل MusePose قبل الإنتاج:
+   {"input":{"task":"musepose_lock_status"}}
+
+10. إذا رجع MUSEPOSE_ROOT_NOT_FOUND:
+   ثبّت MusePose في:
+   /workspace/MusePose
+   أو اضبط:
+   MUSEPOSE_ROOT=/workspace/MusePose
+
+11. إذا رجع MUSEPOSE_WEIGHTS_NOT_FOUND:
+   ضع أوزان MusePose في:
+   /workspace/MusePose/pretrained_weights
+   أو اضبط:
+   MUSEPOSE_WEIGHTS=/workspace/MusePose/pretrained_weights
+
+12. إذا رجع MUSEPOSE_COMMAND_TEMPLATE_REQUIRED_BY_V31:
+   اضبط MUSEPOSE_COMMAND_TEMPLATE حسب runner الحقيقي، مثل:
+   python -u /workspace/jumana/runners/jumana_musepose_real_runner.py --root {root} --source_image {source_image} --motion_name {motion_name} --output_dir {output_dir} --weights {weights} --width 512 --height 512
+
+13. لا تختبر real_full_body_video قبل أن يصبح:
+   musepose_lock_status -> production_ready=true
+
+14. قاعدة منع الوهم:
+   لا نجاح بدون video_base64 أو video_url لفيديو MP4 جديد وحقيقي.

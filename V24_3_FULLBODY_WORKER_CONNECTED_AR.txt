@@ -1,0 +1,7 @@
+V24.3 FullBody Worker Connected
+
+ارفع محتوى هذا المجلد إلى GitHub repo باسم jumana-fullbody-worker.
+بعد نجاح Actions استعمل Docker image:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v24-3
+
+هذه النسخة مخصصة لعامل الجسم المستقل فقط. لا تضعها مكان SadTalker Worker.

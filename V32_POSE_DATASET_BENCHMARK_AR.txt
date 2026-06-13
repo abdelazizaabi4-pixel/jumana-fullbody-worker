@@ -1,0 +1,33 @@
+V34 — Real Head Tracking
+
+هذه النسخة لا تضيف محركًا جديدًا. هذه نسخة قياس علمي.
+الهدف: نعرف بالأرقام هل DWPose وMusePose يصلحان فعلاً، ونكشف الجاني الأكبر بدل التخمين.
+
+ما أضيف:
+1. task=benchmark_template
+2. task=pose_dataset_benchmark
+3. benchmark/V34_GOLDEN_TEST_SUITE_TEMPLATE.json
+4. تقرير v34_benchmark_report.json
+5. نسب حقيقية:
+   image_success_percent
+   pose_success_percent
+   musepose_e2e_video_success_percent
+6. قرار واضح:
+   production_claim_allowed
+   world_class_claim_allowed
+
+القاعدة الذهبية:
+لا ننتقل إلى V34 قبل تجربة 20 صورة على الأقل.
+لا ندّعي مستوى عالمي قبل 100 صورة على الأقل.
+
+Docker image:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v34
+
+أوامر RunPod:
+{"input":{"task":"benchmark_template"}}
+
+Dry run بدون تشغيل MusePose الثقيل:
+{"input":{"task":"pose_dataset_benchmark","dry_run":true,"run_e2e":false,"cases":[]}}
+
+تشغيل حقيقي بعد وضع صور base64:
+{"input":{"task":"pose_dataset_benchmark","dry_run":false,"run_e2e":true,"engine":"musepose","motions":["standing_idle","right_hand_explain","both_hands_explain"],"cases":[{"id":"case_001","type":"full_body_feet_visible","image_base64":"PUT_IMAGE_BASE64_HERE"}]}}

@@ -1,0 +1,21 @@
+# خطوات رفع وتجربة V35
+
+1. ارفع محتوى المجلد:
+_GITHUB_UPLOAD_ONCE_FULLBODY_WORKER
+
+إلى GitHub repo الخاص بعامل الجسم الكامل:
+jumana-fullbody-worker
+
+2. شغّل GitHub Actions.
+
+3. حدّث RunPod FullBody Endpoint فقط إلى:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v36
+
+4. جرّب أولًا:
+{"input":{"task":"deep_quality_status"}}
+
+5. ثم جرّب قالب الجودة:
+{"input":{"task":"deep_quality_template"}}
+
+6. بعد أن يكون لديك فيديو نهائي من V34 Face Graft أو Composer، أرسل:
+{"input":{"task":"deep_quality_judge","video_base64":"PUT_FINAL_VIDEO_BASE64_HERE","expected_motion":"real_full_body_talk","talking_expected":true,"strict":true}}

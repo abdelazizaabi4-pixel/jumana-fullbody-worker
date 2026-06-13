@@ -1,0 +1,26 @@
+خطوات رفع واختبار V40 — World-Class Director
+
+1. افتح المجلد:
+_GITHUB_UPLOAD_ONCE_FULLBODY_WORKER
+
+2. ارفع محتواه فقط إلى مستودع GitHub الخاص بـ jumana-fullbody-worker.
+
+3. شغّل GitHub Actions.
+
+4. بعد النجاح، استعمل Docker image:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v40
+
+5. لا تلمس SadTalker Endpoint.
+هذا endpoint خاص بالوجه والكلام فقط.
+
+6. اختبر:
+{"input":{"task":"world_director_status"}}
+
+7. خذ قالب الطلب:
+{"input":{"task":"world_director_template"}}
+
+8. اختبر التخطيط بدون تشغيل ثقيل:
+{"input":{"task":"world_director_plan","story_ar":"شخص يرحب بالجمهور ثم يشرح بيده اليمنى ثم يلتفت قليلا","max_shots":3}}
+
+9. اختبر التنفيذ الحقيقي بعد جاهزية المحركات:
+{"input":{"task":"world_director_execute","story_ar":"شخص يشرح بيده اليمنى ثم يختم بتحية","image_base64":"PUT_IMAGE_BASE64_HERE","max_shots":2,"engine":"auto","quality_threshold":76}}

@@ -1,0 +1,15 @@
+خطوات V37:
+
+1. ارفع محتوى _GITHUB_UPLOAD_ONCE_FULLBODY_WORKER إلى repo jumana-fullbody-worker.
+2. شغّل GitHub Actions.
+3. غيّر FullBody RunPod Endpoint فقط إلى:
+   docker.io/abdelazizaabi/jumana-fullbody-worker:v38
+4. لا تغيّر SadTalker Endpoint.
+5. أول اختبار:
+   {"input":{"task":"engine_ensemble_status"}}
+6. قالب الاختبار:
+   {"input":{"task":"engine_ensemble_template"}}
+7. خطة اختيار المحرك:
+   {"input":{"task":"engine_ensemble_plan","motion_name":"both_hands_explain","engine":"auto"}}
+8. تنفيذ حقيقي:
+   {"input":{"task":"engine_ensemble_execute","image_base64":"PUT_IMAGE_BASE64_HERE","motion_name":"right_hand_explain","engine":"auto"}}

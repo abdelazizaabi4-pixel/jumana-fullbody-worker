@@ -1,0 +1,53 @@
+{
+  "version": "V36_SMART_RETRY_2",
+  "description_ar": "قالب Dataset ذهبي. استبدل image_base64 بصور حقيقية أو استعمل dataset_dir داخل RunPod.",
+  "task": "pose_dataset_benchmark",
+  "dry_run": true,
+  "run_e2e": false,
+  "engine": "musepose",
+  "motions": [
+    "standing_idle",
+    "right_hand_explain",
+    "both_hands_explain"
+  ],
+  "cases": [
+    {
+      "id": "face_close_001",
+      "type": "face_close",
+      "image_base64": "PUT_BASE64_HERE"
+    },
+    {
+      "id": "upper_body_hands_001",
+      "type": "upper_body_hands",
+      "image_base64": "PUT_BASE64_HERE"
+    },
+    {
+      "id": "full_body_feet_visible_001",
+      "type": "full_body_feet_visible",
+      "image_base64": "PUT_BASE64_HERE"
+    },
+    {
+      "id": "full_body_feet_partial_001",
+      "type": "full_body_feet_partial",
+      "image_base64": "PUT_BASE64_HERE"
+    },
+    {
+      "id": "two_person_001",
+      "type": "two_person",
+      "image_base64": "PUT_BASE64_HERE"
+    },
+    {
+      "id": "complex_background_001",
+      "type": "complex_background",
+      "image_base64": "PUT_BASE64_HERE"
+    }
+  ],
+  "acceptance_targets": {
+    "phase_1_min_cases": 20,
+    "world_class_target_cases": 100,
+    "phase_1_pose_success_percent": 90,
+    "phase_1_musepose_e2e_success_percent": 70,
+    "world_class_pose_success_percent": 95,
+    "world_class_musepose_e2e_success_percent": 90
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "input": {
+    "task": "smart_retry_execute",
+    "image_base64": "PUT_IMAGE_BASE64_HERE",
+    "motion_name": "both_hands_explain",
+    "engine": "auto",
+    "max_attempts": 4,
+    "quality_threshold": 76,
+    "strict": true
+  }
+}

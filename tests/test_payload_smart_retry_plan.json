@@ -1,0 +1,11 @@
+{
+  "input": {
+    "task": "smart_retry_plan",
+    "quality_report": {
+      "overall_quality_score": 52,
+      "main_criminal_ar": "hands_deformation",
+      "solution_ar": "أعد المحاولة بحركة يد أبسط"
+    },
+    "requested_motion": "both_hands_explain"
+  }
+}

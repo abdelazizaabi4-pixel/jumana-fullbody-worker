@@ -1,0 +1,8 @@
+{
+  "input": {
+    "task": "head_track_video",
+    "video_base64": "PUT_BODY_VIDEO_BASE64_HERE",
+    "stride": 3,
+    "max_frames": 240
+  }
+}

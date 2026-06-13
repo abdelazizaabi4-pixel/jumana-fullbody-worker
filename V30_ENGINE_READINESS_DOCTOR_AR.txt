@@ -1,0 +1,28 @@
+V30 — Engine Readiness Doctor
+
+هذه النسخة لا تضيف محركًا رابعًا. هذه النسخة تضيف الطبيب الذي يمنع ضياع الوقت والرصيد قبل تشغيل المحركات الثقيلة.
+
+ما يفحصه V30 قبل التشغيل:
+1. هل GPU/CUDA ظاهر داخل RunPod؟
+2. هل ffmpeg موجود؟
+3. هل DWPose جاهز؟
+4. هل MusePose موجود؟ وهل أوزانه موجودة؟ وهل command template مضبوط؟
+5. هل MagicAnimate موجود؟ وهل أوزانه موجودة؟ وهل command template مضبوط؟
+6. هل AnimateAnyone موجود؟ وهل أوزانه موجودة؟ وهل command template مضبوط؟
+7. هل يوجد محرك واحد على الأقل جاهز فعلاً؟
+8. هل هناك مساحة قرص كافية؟
+
+المهام الجديدة:
+{"input":{"task":"engine_readiness"}}
+{"input":{"task":"readiness"}}
+{"input":{"task":"preflight","engine":"musepose"}}
+
+Docker image:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v30
+
+القاعدة الذهبية:
+إذا لم يجتز المحرك readiness gate، لا نشغله ولا نرجع نجاحًا وهميًا.
+
+الخطوة التالية:
+V31 = MusePose End-to-End Lock
+أي نثبت محركًا واحدًا فعليًا: أوزان واحدة، أمر واحد، اختبار واحد ناجح.

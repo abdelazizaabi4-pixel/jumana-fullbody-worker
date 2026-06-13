@@ -1,0 +1,26 @@
+V34 — REAL HEAD TRACKING / تتبع الرأس الحقيقي
+
+هذه النسخة لا تركب الوجه بعد. وظيفتها الحاسمة: تحديد مكان الرأس في فيديو الجسم Frame by Frame قبل V34 Face Graft.
+
+لماذا هذا مهم؟
+لأن تركيب الوجه الناطق فوق الجسم بدون head tracking يعطي نتيجة ضعيفة أو مزيفة. V34 تمنع ذلك.
+
+المهام الجديدة داخل FullBody Worker:
+- head_tracking_status
+- head_tracking_template
+- head_track_video
+- real_head_tracking
+
+ماذا تفعل؟
+1. تقرأ فيديو الجسم الناتج من MusePose/FullBody.
+2. تفحص الإطارات عبر OpenCV.
+3. تكتشف الوجه/الرأس إن أمكن.
+4. تحفظ head_box لكل إطار.
+5. تقيس الثبات jitter و found_ratio.
+6. تعطي face_graft_allowed=true فقط إذا التتبع مستقر.
+
+إذا لم يكن التتبع مستقرًا، لا ننتقل إلى V34.
+الحل سيكون: حركة أبطأ، وجه أوضح، فيديو جسم أفضل، أو head_box_hint لأول إطار.
+
+Docker image:
+docker.io/abdelazizaabi/jumana-fullbody-worker:v34

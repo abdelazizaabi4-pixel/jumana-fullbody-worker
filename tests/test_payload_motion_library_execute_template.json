@@ -1,0 +1,8 @@
+{
+  "input": {
+    "task": "motion_library_execute",
+    "image_base64": "PUT_IMAGE_BASE64_HERE",
+    "intent_ar": "شرح باليد اليمنى",
+    "engine": "auto"
+  }
+}

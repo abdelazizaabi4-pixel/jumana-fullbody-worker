@@ -1,0 +1,8 @@
+{
+  "input": {
+    "task": "animateanyone_motion_test",
+    "engine": "animateanyone",
+    "motion_name": "standing_idle",
+    "image_base64": "PUT_IMAGE_BASE64_HERE"
+  }
+}

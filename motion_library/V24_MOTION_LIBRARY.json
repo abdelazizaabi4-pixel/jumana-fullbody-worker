@@ -1,0 +1,19 @@
+{
+  "standing_idle": {
+    "ar": "وقوف طبيعي مع تنفس خفيف",
+    "real_stage": "V24.2"
+  },
+  "right_hand_explain": {
+    "ar": "شرح باليد اليمنى",
+    "real_stage": "V24.2"
+  },
+  "both_hands_explain": {
+    "ar": "شرح باليدين",
+    "real_stage": "V24.2"
+  },
+  "walking_lite": {
+    "ar": "مشي خفيف",
+    "real_stage": "V24.4",
+    "guard": "feet_visible_required"
+  }
+}

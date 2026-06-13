@@ -1,0 +1,8 @@
+{
+  "input": {
+    "task": "face_graft_video",
+    "body_video_base64": "PUT_BODY_VIDEO_BASE64_HERE",
+    "talking_face_video_base64": "PUT_FACE_VIDEO_BASE64_HERE",
+    "strict": true
+  }
+}

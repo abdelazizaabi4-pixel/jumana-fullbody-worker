@@ -1,0 +1,37 @@
+# V34 — Real Head Tracking
+
+الهدف: تثبيت MusePose فعليًا بدل البقاء في مرحلة Bridge.
+
+V31 لا تحاول تشغيل كل المحركات. تركيزها واحد:
+
+MusePose فقط
++ DWPose Truth قبل التشغيل
++ Command Template واحد
++ أوزان واحدة
++ اختبار فيديو واحد ناجح
+
+## متغيرات RunPod المطلوبة
+
+MUSEPOSE_ROOT=/workspace/MusePose
+MUSEPOSE_WEIGHTS=/workspace/models/musepose
+MUSEPOSE_COMMAND_TEMPLATE=ضع الأمر النهائي هنا
+MUSEPOSE_TIMEOUT_SECONDS=1800
+MUSEPOSE_REQUIRE_COMMAND_TEMPLATE=1
+MUSEPOSE_MIN_OUTPUT_BYTES=100000
+
+## الاختبار الأول
+
+{"input":{"task":"musepose_lock_status"}}
+
+## الاختبار الثاني
+
+{"input":{"task":"musepose_e2e_lock_test","motion_name":"standing_idle","image_base64":"PUT_IMAGE_BASE64_HERE"}}
+
+## متى نعتبر MusePose مقفلًا؟
+إذا رجع:
+- ok=true
+- real_video_generated=true
+- video_base64 أو video_url
+- v31_musepose_end_to_end_locked=true
+
+إذا فشل، لا ننتقل إلى V34. نصلح الجاني الظاهر في output.
