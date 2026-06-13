@@ -1,4 +1,4 @@
-FROM runpod/pytorch:2.1.0-py3.10-cuda12.1.0-devel
+﻿FROM runpod/pytorch:2.1.1-py3.10-cuda12.1.1-devel-ubuntu22.04
 
 WORKDIR /workspace
 ENV DEBIAN_FRONTEND=noninteractive
@@ -32,8 +32,8 @@ RUN pip install --upgrade pip && pip install -r /workspace/requirements.txt
 
 COPY . /workspace
 
-# اختياري: يمكن في GitHub Actions البناء مع --build-arg INSTALL_MUSEPOSE=true أو تثبيت MagicAnimate على RunPod Volume
-# لكن الأفضل عمليًا وضع MusePose والأوزان على RunPod Volume لتقليل حجم Docker وتسريع التشغيل.
+# ط§ط®طھظٹط§ط±ظٹ: ظٹظ…ظƒظ† ظپظٹ GitHub Actions ط§ظ„ط¨ظ†ط§ط، ظ…ط¹ --build-arg INSTALL_MUSEPOSE=true ط£ظˆ طھط«ط¨ظٹطھ MagicAnimate ط¹ظ„ظ‰ RunPod Volume
+# ظ„ظƒظ† ط§ظ„ط£ظپط¶ظ„ ط¹ظ…ظ„ظٹظ‹ط§ ظˆط¶ط¹ MusePose ظˆط§ظ„ط£ظˆط²ط§ظ† ط¹ظ„ظ‰ RunPod Volume ظ„طھظ‚ظ„ظٹظ„ ط­ط¬ظ… Docker ظˆطھط³ط±ظٹط¹ ط§ظ„طھط´ط؛ظٹظ„.
 ARG INSTALL_MUSEPOSE=false
 RUN if [ "$INSTALL_MUSEPOSE" = "true" ]; then bash /workspace/scripts/install_musepose_reference.sh; fi
 
