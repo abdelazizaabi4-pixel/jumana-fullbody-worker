@@ -63,21 +63,43 @@ class DWPoseTruthEngine:
         if not self.enable_real:
             raise RuntimeError("DWPOSE_REAL_DISABLED_BY_ENV")
         try:
-            # أكثر الصيغ شيوعًا في controlnet-aux.
             try:
-                from controlnet_aux import DWposeDetector  # type: ignore
+                import torch
+                device = "cuda:0" if torch.cuda.is_available() else "cpu"
             except Exception:
-                from controlnet_aux.dwpose import DWposeDetector  # type: ignore
-            self._detector = DWposeDetector.from_pretrained(self.model_id)
-            return self._detector
+                device = "cpu"
+            try:
+                from easy_dwpose import DWposeDetector  # type: ignore
+                self._detector = DWposeDetector(device=device)
+                self._detector_backend = "easy_dwpose"
+                return self._detector
+            except Exception:
+                try:
+                    from controlnet_aux.processor import Processor  # type: ignore
+                    self._detector = Processor("dwpose")
+                    self._detector_backend = "controlnet_aux_processor_dwpose"
+                    return self._detector
+                except Exception:
+                    from controlnet_aux import OpenposeDetector  # type: ignore
+                    self._detector = OpenposeDetector.from_pretrained(self.model_id)
+                    self._detector_backend = "openpose_fallback"
+                    return self._detector
         except Exception as e:
             self._detector_error = traceback.format_exc()[-4000:]
             raise RuntimeError(f"DWPOSE_DETECTOR_LOAD_FAILED: {e}") from e
 
     def _run_detector(self, image: Image.Image) -> Image.Image:
         detector = self._load_detector()
+        backend = getattr(self, "_detector_backend", "")
         try:
-            pose = detector(image)
+            if backend == "easy_dwpose":
+                pose = detector(image, output_type="pil", include_hands=True, include_face=True)
+            elif backend == "controlnet_aux_processor_dwpose":
+                pose = detector(image, to_pil=True)
+            elif backend == "openpose_fallback":
+                pose = detector(image, hand_and_face=True)
+            else:
+                pose = detector(image)
         except TypeError:
             pose = detector(image, detect_resolution=768, image_resolution=768)
         if not isinstance(pose, Image.Image):
