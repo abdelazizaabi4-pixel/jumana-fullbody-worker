@@ -29,11 +29,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY requirements.txt /workspace/requirements.txt
 RUN pip install --upgrade pip && pip install -r /workspace/requirements.txt
+RUN pip install --no-cache-dir --no-deps easy-dwpose
 
 COPY . /workspace
 
-# ط§ط®طھظٹط§ط±ظٹ: ظٹظ…ظƒظ† ظپظٹ GitHub Actions ط§ظ„ط¨ظ†ط§ط، ظ…ط¹ --build-arg INSTALL_MUSEPOSE=true ط£ظˆ طھط«ط¨ظٹطھ MagicAnimate ط¹ظ„ظ‰ RunPod Volume
-# ظ„ظƒظ† ط§ظ„ط£ظپط¶ظ„ ط¹ظ…ظ„ظٹظ‹ط§ ظˆط¶ط¹ MusePose ظˆط§ظ„ط£ظˆط²ط§ظ† ط¹ظ„ظ‰ RunPod Volume ظ„طھظ‚ظ„ظٹظ„ ط­ط¬ظ… Docker ظˆطھط³ط±ظٹط¹ ط§ظ„طھط´ط؛ظٹظ„.
+# ط·آ§ط·آ®ط·ع¾ط¸ظ¹ط·آ§ط·آ±ط¸ظ¹: ط¸ظ¹ط¸â€¦ط¸ئ’ط¸â€  ط¸ظ¾ط¸ظ¹ GitHub Actions ط·آ§ط¸â€‍ط·آ¨ط¸â€ ط·آ§ط·طŒ ط¸â€¦ط·آ¹ --build-arg INSTALL_MUSEPOSE=true ط·آ£ط¸ث† ط·ع¾ط·آ«ط·آ¨ط¸ظ¹ط·ع¾ MagicAnimate ط·آ¹ط¸â€‍ط¸â€° RunPod Volume
+# ط¸â€‍ط¸ئ’ط¸â€  ط·آ§ط¸â€‍ط·آ£ط¸ظ¾ط·آ¶ط¸â€‍ ط·آ¹ط¸â€¦ط¸â€‍ط¸ظ¹ط¸â€¹ط·آ§ ط¸ث†ط·آ¶ط·آ¹ MusePose ط¸ث†ط·آ§ط¸â€‍ط·آ£ط¸ث†ط·آ²ط·آ§ط¸â€  ط·آ¹ط¸â€‍ط¸â€° RunPod Volume ط¸â€‍ط·ع¾ط¸â€ڑط¸â€‍ط¸ظ¹ط¸â€‍ ط·آ­ط·آ¬ط¸â€¦ Docker ط¸ث†ط·ع¾ط·آ³ط·آ±ط¸ظ¹ط·آ¹ ط·آ§ط¸â€‍ط·ع¾ط·آ´ط·ط›ط¸ظ¹ط¸â€‍.
 ARG INSTALL_MUSEPOSE=false
 RUN if [ "$INSTALL_MUSEPOSE" = "true" ]; then bash /workspace/scripts/install_musepose_reference.sh; fi
 

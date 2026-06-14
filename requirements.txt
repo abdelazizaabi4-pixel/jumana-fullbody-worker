@@ -11,7 +11,7 @@ safetensors>=0.4.0
 controlnet-aux>=0.0.9
 onnxruntime-gpu>=1.16.0
 # MusePose / diffusion runtime helpers. Torch is provided by RunPod PyTorch base image.
-diffusers>=0.25.0
+diffusers==0.27.2
 transformers>=4.36.0
 accelerate>=0.25.0
 einops>=0.7.0
@@ -24,4 +24,3 @@ scikit-image>=0.21.0
 tqdm>=4.66.0
 
 opencv-contrib-python-headless>=4.8.0
-easy-dwpose
