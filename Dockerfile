@@ -21,7 +21,7 @@ ENV JUMANA_ENGINE_READINESS_DOCTOR=1
 ENV JUMANA_MUSEPOSE_E2E_LOCK=1
 ENV MUSEPOSE_REQUIRE_COMMAND_TEMPLATE=1
 ENV MUSEPOSE_MIN_OUTPUT_BYTES=100000
-ENV MUSEPOSE_COMMAND_TEMPLATE="bash /workspace/scripts/run_musepose_v31_pose_video.sh {root} {source_image} {pose_truth_json}"
+ENV MUSEPOSE_COMMAND_TEMPLATE="bash /workspace/scripts/run_musepose_v31_motion_tests.sh {root} {source_image} {motion_name} {motion_json} {pose_truth_json}"
 ENV JUMANA_MIN_FREE_DISK_GB=10
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -34,6 +34,7 @@ RUN pip install --no-cache-dir --no-deps easy-dwpose
 
 COPY . /workspace
 RUN chmod +x /workspace/scripts/run_musepose_v31_pose_video.sh
+RUN chmod +x /workspace/scripts/run_musepose_v31_motion_tests.sh
 
 # ط·آ·ط¢آ§ط·آ·ط¢آ®ط·آ·ط¹آ¾ط·آ¸ط¸آ¹ط·آ·ط¢آ§ط·آ·ط¢آ±ط·آ¸ط¸آ¹: ط·آ¸ط¸آ¹ط·آ¸أ¢â‚¬آ¦ط·آ¸ط¦â€™ط·آ¸أ¢â‚¬آ  ط·آ¸ط¸آ¾ط·آ¸ط¸آ¹ GitHub Actions ط·آ·ط¢آ§ط·آ¸أ¢â‚¬â€چط·آ·ط¢آ¨ط·آ¸أ¢â‚¬آ ط·آ·ط¢آ§ط·آ·ط·إ’ ط·آ¸أ¢â‚¬آ¦ط·آ·ط¢آ¹ --build-arg INSTALL_MUSEPOSE=true ط·آ·ط¢آ£ط·آ¸ط«â€  ط·آ·ط¹آ¾ط·آ·ط¢آ«ط·آ·ط¢آ¨ط·آ¸ط¸آ¹ط·آ·ط¹آ¾ MagicAnimate ط·آ·ط¢آ¹ط·آ¸أ¢â‚¬â€چط·آ¸أ¢â‚¬آ° RunPod Volume
 # ط·آ¸أ¢â‚¬â€چط·آ¸ط¦â€™ط·آ¸أ¢â‚¬آ  ط·آ·ط¢آ§ط·آ¸أ¢â‚¬â€چط·آ·ط¢آ£ط·آ¸ط¸آ¾ط·آ·ط¢آ¶ط·آ¸أ¢â‚¬â€چ ط·آ·ط¢آ¹ط·آ¸أ¢â‚¬آ¦ط·آ¸أ¢â‚¬â€چط·آ¸ط¸آ¹ط·آ¸أ¢â‚¬آ¹ط·آ·ط¢آ§ ط·آ¸ط«â€ ط·آ·ط¢آ¶ط·آ·ط¢آ¹ MusePose ط·آ¸ط«â€ ط·آ·ط¢آ§ط·آ¸أ¢â‚¬â€چط·آ·ط¢آ£ط·آ¸ط«â€ ط·آ·ط¢آ²ط·آ·ط¢آ§ط·آ¸أ¢â‚¬آ  ط·آ·ط¢آ¹ط·آ¸أ¢â‚¬â€چط·آ¸أ¢â‚¬آ° RunPod Volume ط·آ¸أ¢â‚¬â€چط·آ·ط¹آ¾ط·آ¸أ¢â‚¬ع‘ط·آ¸أ¢â‚¬â€چط·آ¸ط¸آ¹ط·آ¸أ¢â‚¬â€چ ط·آ·ط¢آ­ط·آ·ط¢آ¬ط·آ¸أ¢â‚¬آ¦ Docker ط·آ¸ط«â€ ط·آ·ط¹آ¾ط·آ·ط¢آ³ط·آ·ط¢آ±ط·آ¸ط¸آ¹ط·آ·ط¢آ¹ ط·آ·ط¢آ§ط·آ¸أ¢â‚¬â€چط·آ·ط¹آ¾ط·آ·ط¢آ´ط·آ·ط·â€؛ط·آ¸ط¸آ¹ط·آ¸أ¢â‚¬â€چ.
