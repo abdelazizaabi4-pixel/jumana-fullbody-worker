@@ -20,8 +20,8 @@ jobs:
 
       - name: Build Docker image V40 World-Class Director
         run: |
-          docker build --build-arg INSTALL_MUSEPOSE=true -t abdelazizaabi/jumana-fullbody-worker:v40-dwpose2 .
+          docker build --build-arg INSTALL_MUSEPOSE=true -t abdelazizaabi/jumana-fullbody-worker:v40-dwpose3 .
 
       - name: Push Docker image V40 World-Class Director
         run: |
-          docker push abdelazizaabi/jumana-fullbody-worker:v40-dwpose2
+          docker push abdelazizaabi/jumana-fullbody-worker:v40-dwpose3
