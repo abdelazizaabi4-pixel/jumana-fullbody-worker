@@ -9,6 +9,7 @@ cd /workspace/MusePose
 mkdir -p ./pretrained_weights ./pretrained_weights/dwpose
 huggingface-cli download TMElyralab/MusePose --local-dir ./pretrained_weights --include MusePose/*.pth
 huggingface-cli download stabilityai/sd-vae-ft-mse --local-dir ./pretrained_weights/sd-vae-ft-mse --include config.json --include diffusion_pytorch_model.bin
+wget -q -O ./pretrained_weights/sd-vae-ft-mse/config.json https://huggingface.co/stabilityai/sd-vae-ft-mse/resolve/main/config.json
 huggingface-cli download lambdalabs/sd-image-variations-diffusers --local-dir ./pretrained_weights/sd-image-variations-diffusers --include unet/*
 huggingface-cli download lambdalabs/sd-image-variations-diffusers --local-dir ./pretrained_weights --include image_encoder/*
 huggingface-cli download yzd-v/DWPose --local-dir ./pretrained_weights/dwpose --include dw-ll_ucoco_384.pth
